@@ -1,17 +1,34 @@
 execute pathogen#infect()
+
 syntax on
+filetype plugin indent on
+
+let mapleader = "\<Space>"
 
 inoremap kj <ESC>
-let mapleader = "\<Space>"
+noremap <ESC> :noh<CR> :ccl<CR><ESC>
+
+" Save
+map <Leader>s :w<CR>
+" Build
+set makeprg=build.bat
+nmap <Leader>b :w<CR> :make<CR> :copen<CR>
+nmap <Down> :cnext<CR>
+nmap <Up> :cprev<CR>
+
 set nowrap
-filetype plugin indent on
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
 set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set backspace=2
+
+set autoread
 
 " Stop line wrapping on log files, cause it's just easier
 " for me to read them that way
 autocmd BufRead,BufNewFile *.log setlocal wrap
+
+" THEME
+set background=dark
+colorscheme base16-eighties
