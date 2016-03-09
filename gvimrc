@@ -19,3 +19,7 @@ set statusline+=%b,0x%-8B\                   " current char
 set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 set guifont=Liberation_Mono:h12:cANSI
+
+" THEME
+set background=dark
+colorscheme base16-eighties

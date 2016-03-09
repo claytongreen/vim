@@ -6,11 +6,12 @@ filetype plugin indent on
 let mapleader = "\<Space>"
 
 inoremap kj <ESC>
-noremap <ESC> :noh<CR> :ccl<CR><ESC>
+" noremap <ESC> :noh<CR> :ccl<CR><ESC>
 
 " Save
 map <Leader>s :w<CR>
 " Build
+" TODO: Change this to be platform specific
 set makeprg=build.bat
 nmap <Leader>b :w<CR> :make<CR> :copen<CR>
 nmap <Down> :cnext<CR>
@@ -28,7 +29,3 @@ set autoread
 " Stop line wrapping on log files, cause it's just easier
 " for me to read them that way
 autocmd BufRead,BufNewFile *.log setlocal wrap
-
-" THEME
-set background=dark
-colorscheme base16-eighties
