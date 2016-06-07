@@ -1,6 +1,5 @@
 execute pathogen#infect()
 
-syntax on
 filetype plugin indent on
 
 let mapleader = "\<Space>"
@@ -29,3 +28,9 @@ set autoread
 " Stop line wrapping on log files, cause it's just easier
 " for me to read them that way
 autocmd BufRead,BufNewFile *.log setlocal wrap
+
+if (has("termguicolors"))
+    set termguicolors
+endif
+syntax on
+colorscheme onedark

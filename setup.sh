@@ -27,4 +27,21 @@ else
     git pull
     popd
 fi
+
+if [ ! -d onedark.vim ]; then
+    git clone https://github.com/joshdick/onedark.vim.git
+else
+    pushd onedark.vim
+    git pull
+    popd
+fi
+
+if [ ! -d vim-polyglot ]; then
+    git clone https://github.com/sheerun/vim-polyglot.git
+else
+    pushd vim-polyglot
+    git pull
+    popd
+fi
+
 popd
