@@ -3,7 +3,6 @@ filetype plugin indent on
 let mapleader = "\<Space>"
 
 inoremap kj <ESC>
-" noremap <ESC> :noh<CR> :ccl<CR><ESC>
 
 " Save
 map <Leader>s :w<CR>
@@ -33,5 +32,6 @@ endif
 syntax on
 colorscheme onedark
 
+" Disable dat BELLLLLL!
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
