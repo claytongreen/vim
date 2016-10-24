@@ -1,5 +1,3 @@
-execute pathogen#infect()
-
 filetype plugin indent on
 
 let mapleader = "\<Space>"
@@ -34,3 +32,6 @@ if (has("termguicolors"))
 endif
 syntax on
 colorscheme onedark
+
+set noeb vb t_vb=
+au GUIEnter * set vb t_vb=
