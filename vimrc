@@ -15,16 +15,24 @@ nmap <Up> :cprev<CR>
 
 set nowrap
 set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set backspace=2
+
+autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
 
 set autoread
 
+set colorcolumn=100
+
+set wildignore+=*.swp,*.orig
+set wildignore+=**/node_modules,**/e2e " Ignore Angular2 folders
+set wildignore+=**/vendor " Ignore Yii2 folders
+
 " Stop line wrapping on log files, cause it's just easier
 " for me to read them that way
-autocmd BufRead,BufNewFile *.log setlocal wrap
+autocmd BufRead,BufNewFile *.log setlocal nowrap
 
 if (has("termguicolors"))
     set termguicolors
