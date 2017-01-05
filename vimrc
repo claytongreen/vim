@@ -26,9 +26,10 @@ set autoread
 
 set colorcolumn=100
 
-set wildignore+=*.swp,*.orig
-set wildignore+=**/node_modules,**/e2e " Ignore Angular2 folders
-set wildignore+=**/vendor " Ignore Yii2 folders
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)$)|((node_modules|e2e|assets|vendor)$)',
+  \ 'file': '\v\.(swp|orig|ico|jpg|jpeg|png|gif)'
+  \ }
 
 " Stop line wrapping on log files, cause it's just easier
 " for me to read them that way
