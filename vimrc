@@ -39,7 +39,7 @@ if (has("termguicolors"))
     set termguicolors
 endif
 syntax on
-colorscheme onedark
+silent! colorscheme onedark
 
 " Disable dat BELLLLLL!
 set noeb vb t_vb=
