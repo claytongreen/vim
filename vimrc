@@ -35,11 +35,17 @@ let g:ctrlp_custom_ignore = {
 " for me to read them that way
 autocmd BufRead,BufNewFile *.log setlocal nowrap
 
-if (has("termguicolors"))
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
     set termguicolors
+  endif
 endif
+"let g:onedark_termcolors=16
 syntax on
-silent! colorscheme onedark
+colorscheme onedark
 
 " Disable dat BELLLLLL!
 set noeb vb t_vb=

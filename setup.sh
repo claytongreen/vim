@@ -11,7 +11,7 @@ pushd pack/claytrong/start
 
 for p in "${packages[@]}"
 do
-    echo `expr "$p" : '(?:.+\/)*(.+)\.git$'`
+    echo `expr "$p" : '\/(.*)\.git$'`
     #git clone $p 
 done
 
@@ -32,3 +32,8 @@ else
 fi
 
 popd
+
+if [ ! -d colors ]; then
+  mkdir colors
+fi
+cp -rf pack/claytrong/start/onedark.vim/colors/onedark.vim colors/
