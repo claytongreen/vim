@@ -2,6 +2,8 @@
 declare -a packages=(
                     "https://github.com/ctrlpvim/ctrlp.vim.git"
                     "https://github.com/joshdick/onedark.vim.git"
+                    "https://github.com/leafgarland/typescript-vim.git"
+                    "https://github.com/Valloric/YouCompleteMe.git"
                     )
 
 if [ ! -d pack/claytrong/start ]; then
@@ -11,8 +13,7 @@ pushd pack/claytrong/start
 
 for p in "${packages[@]}"
 do
-    echo `expr "$p" : '\/(.*)\.git$'`
-    #git clone $p 
+    git clone $p 
 done
 
 if [ ! -d ctrlp.vim ]; then
@@ -33,7 +34,13 @@ fi
 
 popd
 
+# Add ondedark to my colors
 if [ ! -d colors ]; then
   mkdir colors
 fi
 cp -rf pack/claytrong/start/onedark.vim/colors/onedark.vim colors/
+
+# install YouCompleteMe
+pushd pack/claytrong/start/YouCompleteMe
+./install.py --all
+popd
