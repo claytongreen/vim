@@ -4,33 +4,39 @@ declare -a packages=(
                     "https://github.com/joshdick/onedark.vim.git"
                     "https://github.com/leafgarland/typescript-vim.git"
                     "https://github.com/Valloric/YouCompleteMe.git"
+                    "https://github.com/rhysd/vim-clang-format.git"
+                    "https://github.com/Quramy/tsuquyomi.git"
+                    "https://github.com/Shougo/vimproc.vim.git"
+                    "https://github.com/clausreinke/typescript-tools.vim.git"
                     )
+
+# don't want to install YCM every time, that'd be bad
+while getopts i option
+do
+  case "${option}"
+  in
+    i) INSTALL_YCM=1;;    
+  esac
+done
 
 if [ ! -d pack/claytrong/start ]; then
     mkdir -p pack/claytrong/start
 fi
 pushd pack/claytrong/start
 
-for p in "${packages[@]}"
-do
-    git clone $p 
-done
+  # install the packages
+  for p in "${packages[@]}"
+  do
+      git clone -q $p 
+  done
 
-if [ ! -d ctrlp.vim ]; then
-    git clone https://github.com/ctrlpvim/ctrlp.vim.git
-else
-    pushd ctrlp.vim
+  # update the packages
+  for d in `find -maxdepth 1 -type d \( ! -name . \)`
+  do
+    pushd $d
     git pull
     popd
-fi
-
-if [ ! -d onedark.vim ]; then
-    git clone https://github.com/joshdick/onedark.vim.git
-else
-    pushd onedark.vim
-    git pull
-    popd
-fi
+  done
 
 popd
 
@@ -38,9 +44,17 @@ popd
 if [ ! -d colors ]; then
   mkdir colors
 fi
-cp -rf pack/claytrong/start/onedark.vim/colors/onedark.vim colors/
+cp pack/claytrong/start/onedark.vim/colors/onedark.vim colors/
 
 # install YouCompleteMe
-pushd pack/claytrong/start/YouCompleteMe
-./install.py --all
+if [ $INSTALL_YCM ]; then
+  pushd pack/claytrong/start/YouCompleteMe
+    git submodule update --init --recursive
+    ./install.py
+  popd
+fi
+
+# install vimproc
+pushd pack/claytrong/start/vimproc.vim
+make
 popd

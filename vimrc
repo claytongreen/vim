@@ -15,12 +15,12 @@ nmap <Up> :cprev<CR>
 
 set nowrap
 set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=8
+set softtabstop=4
+set shiftwidth=4
 set backspace=2
 
-autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
+autocmd FileType typescript setlocal softtabstop=2 shiftwidth=2
 
 set autoread
 
@@ -50,3 +50,10 @@ colorscheme onedark
 " Disable dat BELLLLLL!
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
+
+if !exists("g:ycm_semantic_triggers")
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
+
+let g:clang_format#auto_format_on_insert_leave = 1
