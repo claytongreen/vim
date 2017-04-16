@@ -2,12 +2,7 @@
 declare -a packages=(
                     "https://github.com/ctrlpvim/ctrlp.vim.git"
                     "https://github.com/joshdick/onedark.vim.git"
-                    "https://github.com/leafgarland/typescript-vim.git"
                     "https://github.com/Valloric/YouCompleteMe.git"
-                    "https://github.com/rhysd/vim-clang-format.git"
-                    "https://github.com/Quramy/tsuquyomi.git"
-                    "https://github.com/Shougo/vimproc.vim.git"
-                    "https://github.com/clausreinke/typescript-tools.vim.git"
                     )
 
 # don't want to install YCM every time, that'd be bad
@@ -53,8 +48,3 @@ if [ $INSTALL_YCM ]; then
     ./install.py
   popd
 fi
-
-# install vimproc
-pushd pack/claytrong/start/vimproc.vim
-make
-popd

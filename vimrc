@@ -35,25 +35,17 @@ let g:ctrlp_custom_ignore = {
 " for me to read them that way
 autocmd BufRead,BufNewFile *.log setlocal nowrap
 
-if (empty($TMUX))
-  if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-"let g:onedark_termcolors=16
+"if (empty($TMUX))
+"  if (has("nvim"))
+"    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"  endif
+"  if (has("termguicolors"))
+"    set termguicolors
+"  endif
+"endif
 syntax on
 colorscheme onedark
 
 " Disable dat BELLLLLL!
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
-
-if !exists("g:ycm_semantic_triggers")
-    let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers['typescript'] = ['.']
-
-let g:clang_format#auto_format_on_insert_leave = 1
