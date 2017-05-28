@@ -21,13 +21,14 @@ set shiftwidth=2
 set backspace=2
 
 autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
+autocmd FileType kotlin setlocal shiftwidth=4 tabstop=4
 
 set autoread
 
 set colorcolumn=100
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)$)|((node_modules|e2e|assets|vendor)$)',
+  \ 'dir':  '\v[\/](\.(git|hg|svn)$)|((node_modules|e2e|assets|vendor|build)$)',
   \ 'file': '\v\.(swp|orig|ico|jpg|jpeg|png|gif)'
   \ }
 
