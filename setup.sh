@@ -2,38 +2,53 @@
 declare -a packages=(
                     "https://github.com/ctrlpvim/ctrlp.vim.git"
                     "https://github.com/joshdick/onedark.vim.git"
+                    #"https://github.com/Valloric/YouCompleteMe.git"
                     )
+
+# don't want to install YCM every time, that'd be bad
+#while getopts i option
+#do
+#  case "${option}"
+#  in
+#    i) INSTALL_YCM=1;;    
+#  esac
+#done
 
 if [ ! -d pack/claytrong/start ]; then
     mkdir -p pack/claytrong/start
 fi
 pushd pack/claytrong/start
 
-for p in "${packages[@]}"
-do
-    echo `expr "$p" : '\/(.*)\.git$'`
-    #git clone $p 
-done
+  # install the packages
+  for p in "${packages[@]}"
+  do
+      git clone -q $p 
+  done
 
-if [ ! -d ctrlp.vim ]; then
-    git clone https://github.com/ctrlpvim/ctrlp.vim.git
-else
-    pushd ctrlp.vim
+  # update the packages
+  for d in `find -maxdepth 1 -type d \( ! -name . \)`
+  do
+    pushd $d
     git pull
     popd
-fi
-
-if [ ! -d onedark.vim ]; then
-    git clone https://github.com/joshdick/onedark.vim.git
-else
-    pushd onedark.vim
-    git pull
-    popd
-fi
+  done
 
 popd
 
+# Add ondedark to my colors
 if [ ! -d colors ]; then
   mkdir colors
 fi
-cp -rf pack/claytrong/start/onedark.vim/colors/onedark.vim colors/
+cp pack/claytrong/start/onedark.vim/colors/onedark.vim colors/
+if [ ! -d autoload ]; then
+    mkdir autoload
+fi
+cp pack/claytrong/start/onedark.vim/autoload/onedark.vim autoload/
+
+# install YouCompleteMe
+#if [ $INSTALL_YCM ]; then
+#  pushd pack/claytrong/start/YouCompleteMe
+#    git submodule update --init --recursive
+#    ./install.py
+#  popd
+#fi

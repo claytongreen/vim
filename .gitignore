@@ -2,4 +2,5 @@ bundle
 .netrwhist
 *.swp
 colors
+autoload
 pack

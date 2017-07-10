@@ -15,9 +15,9 @@ nmap <Up> :cprev<CR>
 
 set nowrap
 set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=8
+set softtabstop=4
+set shiftwidth=4
 set backspace=2
 
 autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
@@ -36,15 +36,6 @@ let g:ctrlp_custom_ignore = {
 " for me to read them that way
 autocmd BufRead,BufNewFile *.log setlocal nowrap
 
-if (empty($TMUX))
-  if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-"let g:onedark_termcolors=16
 syntax on
 colorscheme onedark
 
