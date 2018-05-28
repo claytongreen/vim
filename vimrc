@@ -29,7 +29,7 @@ set autoread
 set colorcolumn=100
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)$)|((node_modules|e2e|assets|vendor|build)$)',
+  \ 'dir':  '\v[\/](\.(git|hg|svn|gradle|idea)$)|((node_modules|e2e|assets|vendor|build|captures|gradle|gradle-user-home)$)',
   \ 'file': '\v\.(swp|orig|ico|jpg|jpeg|png|gif)'
   \ }
 
