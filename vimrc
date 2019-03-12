@@ -59,3 +59,8 @@ colorscheme onedark
 " Disable dat BELLLLLL!
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
+
+set cursorline " highlight the current line
+
+set hlsearch
+nnoremap <esc> :noh<return><esc>
