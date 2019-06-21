@@ -20,8 +20,6 @@ set backspace=indent,eol,start
 " show me them invisible things
 set list
 
-colorscheme onedark
-
 " Disable dat BELLLLLL!
 set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
@@ -33,3 +31,5 @@ au BufNewFile,BufRead */AndroidStudioProjects/* set wildignore+=*/build/*
 
 set hlsearch
 nnoremap <esc> :noh<return><esc>
+
+set cursorline " highlight the current line
