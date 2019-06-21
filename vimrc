@@ -4,6 +4,8 @@ set nocompatible
 syntax on
 filetype plugin indent on
 
+colorscheme onedark
+
 set path+=**
 set wildmenu
 
