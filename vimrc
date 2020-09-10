@@ -1,4 +1,3 @@
-
 set nocompatible
 
 syntax on
@@ -32,6 +31,6 @@ set wildignore+=*/node_modules/*,.git,*/build/*
 au BufNewFile,BufRead */AndroidStudioProjects/* set wildignore+=*/build/*
 
 set hlsearch
-nnoremap <esc> :noh<return><esc>
+nnoremap <silent> <Leader><Leader> :noh<return><esc>
 
 set cursorline " highlight the current line
