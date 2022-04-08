@@ -34,3 +34,24 @@ set hlsearch
 nnoremap <silent> <Leader><Leader> :noh<return><esc>
 
 set cursorline " highlight the current line
+
+autocmd BufNewFile,BufRead *.zig set filetype=zig
+
+let g:ycm_language_server =
+  \ [
+  \{
+  \     'name': 'zls',
+  \     'filetypes': [ 'zig' ],
+  \     'cmdline': [ 'C:/dev/zls/zig-out/bin/zls' ]
+  \    }
+  \ ]
+
+nmap <leader>sp :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+" set listchars=tab:\ ,eol:\ 

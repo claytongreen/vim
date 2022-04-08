@@ -2,7 +2,7 @@
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 :: Move package list to a file so both .bat and .sh can use
-SET PACKAGES=https://github.com/ctrlpvim/ctrlp.vim.git https://github.com/joshdick/onedark.vim.git https://github.com/udalov/kotlin-vim.git https://github.com/leafgarland/typescript-vim.git
+SET PACKAGES=https://github.com/ctrlpvim/ctrlp.vim.git https://github.com/joshdick/onedark.vim.git https://github.com/udalov/kotlin-vim.git https://github.com/leafgarland/typescript-vim.git https://github.com/ziglang/zig.vim.git https://github.com/Tetralux/odin.vim.git
 
 IF NOT EXIST pack\claytrong\start mkdir pack\claytrong\start
 PUSHD pack\claytrong\start
